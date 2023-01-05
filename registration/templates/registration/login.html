@@ -1,0 +1,44 @@
+{% extends "forum/codice_comune_due.html" %}
+
+{% block content %}
+  
+    <div class="slider-thumb">
+
+
+            <br>
+
+            <h1 class="title text-center">JUST WINE <br>
+            {% load static %}
+            <img src="{% static 'malattie/img/icona_home.png' %}" style="width:90px;height:90px;"><br>ACCEDI CON</h1>
+
+            <br><br>
+
+        
+            <form method="POST" action="" class="login-form spacer" id="login-form">
+            {%csrf_token%}
+    
+            
+                <div class="input-group" style="text-align: center;">
+                    {% load static %}
+                    <img class="icon input-icon" src="{% static 'registration/img/mail.png' %}" alt="facebook icon" 
+                    style="position: absolute; left: 39%;">
+                    {{form.username}}
+                </div>
+
+
+                <div class="input-group" style="text-align: center;">
+                    {% load static %}
+                    <img class="icon input-icon" src="{% static 'registration/img/password.png' %}" alt="facebook icon"
+                    style="position: absolute; left: 39%;">
+                    {{form.password1}}
+                </div>
+
+                <input type="submit" style="position: absolute; top:70%; left: 0%;" class="submit" value="Accedi!"><br><br>
+            </form>
+
+            <div class="redirect">
+                <a href="{% url 'home' %}"><h1>Torna alla Home!</h1></a><br><br>
+            </div>
+        </div>
+
+{%endblock%}

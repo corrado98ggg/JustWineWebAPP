@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'malattie/css/homepage.css' %}">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'malattie/css/card.css' %}">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'malattie/css/ricerca.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>        
+    $(document).ready(function(){
+          $("#menuButton").click(function(){
+            $("#menu").slideToggle();
+          }); 
+        });
+
+        
+</script>
+
+<script>        
+    $(document).ready(function(){
+          $("#menuButton2").click(function(){
+            $("#menu2").slideToggle();
+          }); 
+        });
+
+        
+</script>
+
+
+    <title>Just Wine</title>
+</head>
+<body>
+
+
+
+
+
+
+<div id="progress"></div>
+<div class="barra_fissa" style="position: absolute; width: 100%; height: 10%;">
+  <br>
+      
+
+  {% load static %}
+  <a href="{% url 'home' %}"><img src="{% static 'malattie/img/icona_home.png' %}" style="
+  width: 5%;
+  height: 80%;
+  left: 0%;
+  position: absolute;"></a>
+
+  {% load static %}
+  <input type="image" id="menuButton" src="{% static 'malattie/img/menu.png' %}" style="position:absolute;
+  height: 50px;
+  width: 50px;
+  top:25px;
+  left: 1850px;">
+
+  <div class="Blog"  style="
+  width: 5%;
+  height: 80%;
+  left: 7%;
+  position: absolute;">
+    <a href="{% url 'social' %}">Social</a>
+  </div>
+  
+  <div class="Malattia" style="
+  width: 5%;
+  height: 80%;
+  left: 16%;
+  position: absolute;">
+      <a href="{% url 'malattia' %}">Malattie</a>
+  </div>
+  
+  <div class="savethewine" style="
+  width: 5%;
+  height: 80%;
+  left: 27%;
+  position: absolute;">
+    <a href="{% url 'forum' %}">Forum</a>
+  </div>
+  
+  <div class="about_us" style="
+  width: 5%;
+  height: 80%;
+  left: 37%;
+  top: 19%;
+  position: absolute;">
+    <a href="{% url 'contattaci' %}">Contattaci</a>
+  </div>
+</div>
+
+
+{% if user.is_authenticated %}
+
+<input type="image" id="menuButton2" src="{% static 'malattie/img/plus.png' %}" style="position:absolute;
+height: 80px;
+width: 80px;
+top: -9px;
+left: 1480px;">
+
+<div id="menu2" style="display:none;
+  position:absolute;
+  left:60%;">
+    <h1 style ="font-family:Roboto;"><a href="{% url 'inserisci_nuovo_post'%}">Inserisci nuovo post!</h1></a>
+    
+  </div>
+
+
+{%load static%}
+<img src="{% static 'malattie/img/palla_verde.png' %}" style="
+position:absolute;
+height: 10px;
+width: 10px;
+top: 45px;
+left: 1580px;">
+
+  <div id="menu" style="
+  display:none;
+  position:absolute;
+  left:1600px;">
+    <h1 style ="font-family:Roboto;"><a href="{% url 'change_password'%}">Cambia password</h1></a>
+    <h1 style ="font-family:Roboto;"><a href="{% url 'logout'%}">Logout</h1></a>
+  </div>
+
+  
+<h1 style="
+font-family: Roboto;
+position:absolute;
+height: 10px;
+width: 10px;
+top: 0px;
+left: 1600px;">Utente: {{ user.get_username }}</h1>
+
+{% else %}
+  <div id="menu" style="display:none;
+  position:absolute;
+  top: 8%;
+  left:90%;">
+    <h1 style ="font-family:Roboto;"><a href="{% url 'login'%}">Accedi</h1></a>
+    <h1 style ="font-family:Roboto;"><a href="{% url 'registrazione'%}">Registrati</h1></a>
+  </div>
+
+  {%load static%}
+  <img src="{% static 'malattie/img/palla_grigia.png' %}" style="
+  position:absolute;
+  height: 10px;
+  width: 10px;
+  top: 4.5%;
+  left: 77%;">
+
+  
+  <h1 style="
+  font-family: Roboto;
+  position:absolute;
+  height: 10px;
+  width: 20%;
+  top: 1%;
+  left: 78%;">Utente non connesso</h1>
+
+{% endif %}
+
+
+<!-- 
+- Single file SVG animation
+- * can be used as CSS backgroud
+- * total size is less than 3kb!
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin slice" viewBox="24 105 156 95" >
+    <defs>
+        <style type="text/css">
+				@-webkit-keyframes rotate {
+					 0% {
+						  -webkit-transform: rotate(0);
+						  transform: rotate(0)
+					 }
+					 100% {
+						  -webkit-transform: rotate(360deg);
+						  transform: rotate(360deg)
+					 }
+				}
+
+				@keyframes rotate {
+					 0% {
+						  -webkit-transform: rotate(0);
+						  transform: rotate(0)
+					 }
+					 100% {
+						  -webkit-transform: rotate(360deg);
+						  transform: rotate(360deg)
+					 }
+				}
+
+				.top-outer {
+					 -webkit-transform-origin: 73px 69px;
+					 transform-origin: 73px 69px;
+					 -webkit-animation: rotate 30s linear infinite;
+					 animation: rotate 30s linear infinite;
+				}
+
+				.top-inner {
+					 -webkit-transform-origin: 73px 69px;
+					 transform-origin: 73px 69px;
+					 -webkit-animation: rotate 20s linear infinite;
+					 animation: rotate 20s linear infinite;
+				}
+
+				.bottom-outer {
+					 -webkit-transform-origin: 134px 222px;
+					 transform-origin: 134px 222px;
+					 -webkit-animation: rotate 30s linear infinite;
+					 animation: rotate 30s linear infinite;
+				}
+
+				.bottom-inner {
+					 -webkit-transform-origin: 134px  222px;
+								transform-origin: 134px  222px;
+					 -webkit-animation: rotate 20s linear infinite;
+								animation: rotate 20s linear infinite;
+				}
+        </style>
+    </defs>
+    <rect x="0" y="0" width="300" height="300" fill="#E22227"/>
+    <path class="top-outer" fill="#EF8716" stroke="#371300" stroke-width="1" d="M68 1c23,0 67,17 69,39 4,38 5,52 -5,69 -20,36 -68,46 -120,-9 -27,-28 -7,-101 56,-99z"/>
+    <path class="top-inner" fill="#537571" stroke="#DCB467" stroke-width="1" d="M69 22c33,-7 52,21 54,37 3,26 -1,28 -8,40 -15,25 -48,25 -85,-14 -19,-20 -4,-53 39,-63z"/>
+    <path class="bottom-outer" fill="#DCB467" stroke="#371300" stroke-width="1" d="M158 158c30,13 56,50 44,75 -9,18 -22,46 -42,55 -20,10 -48,2 -73,-19 -29,-25 -27,-55 -9,-79 17,-22 43,-48 80,-32z"/>
+    <path class="bottom-inner" fill="#263D56" stroke="#537571" stroke-width="1" d="M136 180c32,-9 45,13 46,29 3,27 8,29 0,42 -14,25 -52,24 -79,0 -21,-18 -2,-61 33,-71z"/>
+</svg>
+
+
+
+<div style = "width: 30%; height: 4%; position: absolute; top: 13%;  border-radius: 10px; background-color: #4CAF50;
+left: 9%;">
+<h3 style="font-family: Roboto;">Alcuni post raccomandati in base ai tuoi interessi...
+</h3>
+</div>
+
+<!--raccomandation system-->
+<div class="contenitore_post_ra" style="
+      width: 35%;
+      height: 75%;
+      position: absolute;
+      border-radius: 20px;
+      top: 18%;
+      left: 8%;
+      background-color: #f5757f;
+      border-style: solid;
+      overflow:scroll;
+      overflow-x: hidden;">
+
+
+      {%for obj in post_raccomandation%} <!--con questo for scorro tutti i post presenti nel database-->
+
+      {%for ta in tags%} <!--con questo for scorro tutti i tag-piaciuti presenti nel database-->
+
+      {%if ta.username == user.get_username and ta.tag == obj.tag%} <!--allora posso stampare il post, perchè è un post consigliato-->
+
+      <!--quello che faccio è anche aggiornare
+      la variabile del post che ci tiene traccia della stampa del raccomandation system-->
+
+      <div class="ui segment">
+
+        <h1 style="text-align: center; font-family: Roboto;">Post by: <h1 style="color: white; text-align: center;">{{obj.author}}</h1></h1>
+        
+        <div id="myDiv">
+        {% load static %}
+        <img src={{ obj.image.url }} syle="height: 80%; width: 100%; position: absolute;">
+        </div>
+        
+        <h2 style="margin: 20px; font-family: Roboto;">{{obj.body}}</h2>
+        
+        <form action ="{%url 'like-post'%}" method ="POST" class="ui form">
+          {% csrf_token %}
+          <input type='hidden' name='post_id' value="{{obj.id}}">
+        
+          {%if user not in obj.liked.all%}
+            <button class="ui button positive" style="font-family: Roboto; background-color: #419b44; width:40%; height: 10%; padding: 4px; margin: 20px; border-radius: 10px; " type='submit'>Like</button>
+        
+            {%else%}
+            <button class="ui button negative" style="font-family: Roboto; background-color: #49637b; width:40%; height: 10%; padding: 4px; margin:20px; border-radius: 10px; " type='submit'>Unlike</button>
+          {%endif%}
+          <br>
+          <strong style="margin: 20px; font-family: Roboto;">Questo post piace a {{obj.liked.all.count}} persone!</strong>
+          <hr align="left" size="2" width="100%" color="black" noshade>
+        
+        </form>
+        
+        <br><br>
+      </div>
+ 
+      {%endif%}
+
+    {%endfor%}
+
+  {%endfor%}
+</div>
+
+
+
+
+
+<!--stampiamo tutti i post che ci sono nel database-->
+
+<div class="contenitore_post" style="
+width: 35%;
+height: 75%;
+position: absolute;
+border-radius: 20px;
+top: 18%;
+left: 60%;
+background-color: #f5757f;
+border-style: solid;
+overflow:scroll;
+overflow-x: hidden;">
+
+{%for obj in qs%} <!--con questo for scorro tutti i post presenti nel database-->
+
+<div class="ui segment">
+
+  <h1 style="text-align: center; font-family: Roboto;">Post by: <h1 style="color: white; text-align: center;">{{obj.author}}</h1></h1>
+  
+      <div id="myDiv">
+        {% load static %}
+        <img src={{ obj.image.url }} syle="height: 80%; width: 100%; position: absolute;">
+      </div>
+  
+  <h2 style="margin: 20px; font-family: Roboto;">{{obj.body}}</h2>
+  
+  <form action ="{%url 'like-post'%}" method ="POST" class="ui form">
+    {% csrf_token %}
+    <input type='hidden' name='post_id' value="{{obj.id}}">
+  
+    {%if user not in obj.liked.all%}
+      <button class="ui button positive" style="font-family: Roboto; background-color: #419b44; width:40%; height: 10%; padding: 4px; margin: 20px; border-radius: 10px; " type='submit'>Like</button>
+  
+      {%else%}
+      <button class="ui button negative" style="font-family: Roboto; background-color: #49637b; width:40%; height: 10%; padding: 4px; margin:20px; border-radius: 10px; " type='submit'>Unlike</button>
+    {%endif%}
+    <br>
+    <strong style="margin: 20px; font-family: Roboto;">Questo post piace a {{obj.liked.all.count}} persone!</strong>
+    <hr align="left" size="2" width="100%" color="black" noshade>
+  
+    </form>
+  
+    <br><br>
+
+    {%endfor%}
+</div>
+
+</div>
+
+
+<style>
+
+
+  #myDiv
+  {
+    text-align: center;
+    height: 80%;
+    width: 100%;
+  }
+  #myDiv img
+  {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+  }
+
+    .descrizione{
+        font-family: Roboto; 
+        top: 82%;
+        left: 2%;
+        position: relative;
+    }
+
+    .sinistra{
+
+        width: 10%;
+        height: 50%;
+        position: absolute;
+        top: 30%;
+        left: 0%;        
+
+    }
+
+    .destra{
+
+        width: 10%;
+        height: 50%;
+        position: absolute;
+        top: 30%;
+        left: 90%;   
+
+    }
+
+
+    .pre_like{
+        width: 6%;
+        height: 6%;
+        left: 2%;
+        position: relative;
+
+    }
+
+    .commento{
+        width: 8%;
+        height: 8%;
+        top: 85%;
+        left: 18%;
+        position: relative;
+    }
+
+    .contenuto_post{
+        width: 100%;
+        height: 60%;
+        top: 20%;
+
+        position: relative;
+
+    }
+
+    .profilo{
+        top: 3%;
+        left: 3%;
+        position: absolute;
+        width: 15%;
+        height: 15%;
+
+    }
+
+    .utente{
+        text-align: center;
+        font-family: Roboto;
+        top: 5%;
+        position: relative;
+        font-size: 16px;
+    }
+
+    .post_singolo {
+        width: 35%;
+        height: 60%;
+        position: absolute;
+        border-radius: 20px;
+        
+        top: 25%;
+        left: 12%;
+        background-color: #f5757f;
+        border-style: solid;
+    }
+
+    .post_singolo_2 {
+        width: 35%;
+        height: 60%;
+        position: absolute;
+        border-radius: 20px;
+        top: 25%;
+        left: 53%;
+        background-color: #f5757f;
+        border-style: solid;
+
+    }
+
+
+    /* Element positioning */
+body, html {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+svg {
+	width: 100%;
+	height: 101vh;
+}
+</style>
+
+
+</body>
+</html>
