@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatto!</title>
+    
+    <!-- da cambiare questi due link, per renderli statici -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'registration/css/styles.css' %}">
+
+
+    {% load static %}
+    <script src="{% static 'registration/css/styles.css' %}" defer></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'registration/css/background.css' %}">
+  
+
+</head>
+<body>
+
+<div class="slider-thumb">
+
+        <div style="text-align: center;">
+            {% load static %}
+            <img src="{% static 'malattie/img/icona_home.png' %}" style="width:6%;height:6%;">
+        </div>
+
+            <h1 class="title text-center">Inserisci la nuova malattia:</h1>
+            <form enctype="multipart/form-data" method="POST" class="post-form">{% csrf_token %}
+                <br>
+
+                <h4 class="text-center" >Inserisci il nome della malattia:</h4>
+                <br>
+                <div class="input-group" style="right: 5%; top: 22%;position: absolute; width: 30%; height: 30%;">{{form.nome_malattia}}</div>
+                <br><br><br><br>
+
+
+                <h4 class="text-center" >Inserisci la descrizione della malattia:</h4>
+                <br>
+                <div class="input-group" style="right: 5%; top: 40%;position: absolute; width: 30%; height: 30%;">{{form.descrizione}}</div>
+                <br><br> <br>
+
+
+                <h4 class="text-center">Inserisci i sintomi:</h4>
+                
+
+                <div class="input-group" style="right: 5%; top: 57%;position: absolute; width: 30%; height: 30%;"> {{form.sintomi_riassunti}}</div>
+                <br><br>
+
+                <h4 class="text-center">Inserisci un immagine:</h4>
+                <div class="input-group" style="text-align: center; border-radius: 10px;">{{form.immagine}}</div>
+                <br>
+
+                <h4 class="text-center" >Inserisci la difesa:</h4>
+                <br>
+                <div class="input-group" style="right: 8%; top: 80%;position: absolute; width: 30%; height: 30%;">{{form.difesa}}</div>
+                <br>
+
+                <div class="input-group" style="text-align: center;">
+                <button type="submit" class="save btn btn-secondary" style="
+                background-color: blue;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 12px;
+                ">Save</button>
+                </div>
+            </form>
+
+    
+
+    <br>
+    <br>
+    <br>
+
+    <div class="redirect">
+        <a href="{% url 'home' %}"><h1>Torna alla Home!</h1></a><br><br>
+    </div>
+
+</div>
+
+</body>
+</html>

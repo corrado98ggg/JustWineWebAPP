@@ -1,0 +1,142 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  display: contents;
+}
+
+.barra_fissa {
+  width: auto;
+  height: 100px;
+  position: absolute;
+  background-color: #ff5757;
+}
+
+/* Disegna i link all'interno della barra di navigazione */
+.barra_fissa a {
+  left: 0px;
+  width: auto;
+  color: #000000;
+  padding: 10px 50px;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  max-width: 100%;
+  min-width: auto;
+  height: fit-content;
+}
+
+/* Cambia il colore dei link al passaggio del mouse */
+.barra_fissa a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.icona_home img {
+  left: -9px;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  max-width: 100%;
+  min-width: auto;
+}
+
+
+
+.Blog {
+  left: 100px;
+  width: auto;
+  height: 100px;
+  position: absolute;
+  max-width: 100%;
+  min-width: auto;
+}
+
+.Malattia {
+  margin: auto;
+  left: 260px;
+  width: auto;
+  height: 100px;
+  position: absolute;
+  max-width: 100%;
+  min-width: auto;
+}
+
+.savethewine {
+  left: 440px;
+  width: auto;
+  height: 100px;
+  position: absolute;
+  max-width: 100%;
+  min-width: auto;
+}
+
+.about_us {
+  left: 720px;
+  width: auto;
+  top: 10px;
+  height: 90px;
+  position: absolute;
+  max-width: 100%;
+  min-width: auto;
+}
+
+
+.immagine_cop img {
+
+  top: 10px;
+  left: 1800px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+}
+
+li {
+  background-color: #cee1ff;
+  padding: 8px;
+  list-style-type: none;
+  top: 180px;
+  left: 1500px;
+  position: absolute;
+}
+
+li:hover {
+  background-color: #aacbff;
+}
+
+#menu-a-tendina {
+  display: none;
+  margin: 0px;
+}
+
+#mostra-menu:hover #menu-a-tendina {
+  display: block;
+}
+
+
+.icon{
+  display: inline-block;
+  font-size: 44px;
+  animation: float 5s ease-in-out
+  infinite;
+}
+
+.ri-facebook-circle-line{
+  animation-delay: 1s;
+}
+
+.ri-whastapp-circle-line{
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% {
+    transform: traslateY(0);
+  }
+  50% {
+    transform: traslateY(-15px);
+  }
+  100% {
+    transform: traslateY(0);
+  }
+}
