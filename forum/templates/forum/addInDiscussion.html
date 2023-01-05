@@ -1,0 +1,69 @@
+{% extends "forum/codice_comune_due.html" %}
+
+{% block content %}
+
+<div class="slider-thumb">
+
+    <div style="text-align: center;">
+        {% load static %}
+        <img src="{% static 'malattie/img/icona_home.png' %}" style="width:6%;height:6%;">
+    </div>
+
+    <div class="redirect">
+        <a href="{% url 'home' %}"><h1>Torna alla Home!</h1></a><br><br>
+    </div>
+    
+        <h1 class="title text-center">Inserisci il nuovo commento:</h1>
+        <form enctype="multipart/form-data" method="POST" class="post-form">{% csrf_token %}
+            <br>
+           
+
+            <h4 class="text-center">Inserisci il topic, tra quelli presenti:</h4>
+            <div class="input-group" style="text-align: center;">{{form.forum}}</div>
+            <br><br>
+            
+            <h4 class="text-center" >Di chi è il forum?:</h4>
+            <div class="input-group" style="text-align: center;">{{form.nome_forum_associato}}</div>
+            <br>
+
+
+            <h4 class="text-center">Inserisci il tuo commento!</h4>
+            <div class="input-group" style="text-align: center;">{{form.discuss}}</div>
+            <br><br>
+
+            <h4 class="text-center">Inserisci il tuo username!</h4>
+
+            <div class="input-group" style="text-align: center;">{{form.username}}</div>
+                        <br><br>
+
+
+
+            <div class="input-group" style="text-align: center;">
+            <button type="submit" class="save btn btn-secondary" style="
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 12px;
+            ">Save</button>
+            </div>
+        </form>
+
+      
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+</div>
+
+
+{%endblock%}

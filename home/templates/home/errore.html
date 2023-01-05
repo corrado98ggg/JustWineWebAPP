@@ -1,0 +1,24 @@
+{% extends "forum/codice_comune_due.html" %}
+
+{% block content %}
+  
+
+    <div class="container">
+        <div class="card center spacer" style="background-color: #ff5757;">
+            <h1 class="title text-center">Ops!</h1>
+            <div class="mute-paragraph text-center">
+                Qualcosa è andato storto
+            </div>
+
+        
+
+        </div>
+
+
+    </div>
+
+    <div class="redirect">
+        <a href="{% url 'home' %}"><h1>Torna alla Home!</h1></a><br><br>
+    </div>
+
+{%endblock%}

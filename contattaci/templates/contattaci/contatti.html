@@ -1,0 +1,35 @@
+{% extends "home/codice_comune_sezioni.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="contatti" style="width: 80%;
+  height: 60%;
+  position: absolute;
+  border-radius: 20px;
+  
+  top: 25%;
+  left: 10%;
+  background-color: #f5757f;
+  border-style: solid;">
+<br>
+  <form method="post" action=".">
+
+  {% csrf_token %}
+
+  <div style="text-align: center;">
+    {{form.as_p}}
+  </div>
+
+  <div style="text-align: center;">
+    <button type="submit" class="btn btn-primary">Contattaci!</button>
+  </div>
+
+
+
+
+</div>
+</div>
+
+{%endblock%}

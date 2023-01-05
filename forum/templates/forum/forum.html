@@ -1,0 +1,80 @@
+{% extends "home/codice_comune_sezioni.html" %}
+
+{% block content %}
+
+<div class="container_forum" style="
+width: 80%;
+height: 60%;
+position: absolute;
+border-radius: 20px;
+top: 25%;
+left: 10%;
+background-color: #f5757f;
+border-style: solid;
+overflow:scroll;
+overflow-x: hidden;">
+
+<form action="" class="search-bar">
+	<input name="q" type="search" pattern=".*\S.*" required>
+	<button class="search-btn" type="submit">
+		<span>Search</span>
+	</button>
+</form>
+
+
+<h2 class="jumbotron" style="background-color: #f5757f;">
+    In questo momento contiamo {{formm.count}} forum attivi!
+    <form method="POST" action="{% url 'addInForum' %}">
+        {% csrf_token %}
+    
+    {% if user.is_authenticated %}
+    <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px; ">Aggiungine un altro!</button>
+    {%else%}
+    Se vuoi aggiungere un forum devi prima fare il <a href="{%url 'login'%}"> login</a>! <br>Per vedere la discussione clicca sul forum
+    {%endif%}
+
+
+
+    </form>
+</h2>
+    <div class="card-columns" style="padding: 10px; margin: 20px; background-color: black;"></div>
+    
+    
+    {%for forum in formm %}
+    
+            <br>
+                    <a  href="/forum_singolo/{{forum.slug_title}}/"><h3>{{forum.topic}}</h3></a> 
+                    <h3>{{forum.descrizione}}</h3>
+                    <hr>
+                    <p> Forum di: <strong>{{forum.nome}}</strong></p>
+                    email - <strong>{{forum.email}}</strong>
+                    <hr>   
+
+                    {% if user.is_authenticated %}
+
+                    <div style="text-align: center;">
+                    <a href="{%url 'AggiungiForumPreferiti'%}"><button class="btn btn-success"> SEGUI FORUM!</button></a>
+                    <br>
+                    
+                    <h6><br>Per vedere la discussione clicca sul forum. <br>Oppure Aggiungi un nuovo commento nella discussione! </h4>
+
+                    <form method="POST" action="{% url 'addInDiscussion' %}">
+                        {% csrf_token %}
+                    <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Aggiungi</button>
+                    </form>
+
+                  </div>
+                    {%else%}
+
+                    <h6>Per vedere la discussione clicca sul forum. <br>Oppure effettua il <a href="{%url 'login'%}"> login</a> per poterne aggiungere una te!</h4>
+
+                    {%endif%}
+
+
+                    <hr align="left" size="5" width="100%" color="black" noshade>
+    {%endfor%}
+</div>
+
+
+
+{%endblock%}

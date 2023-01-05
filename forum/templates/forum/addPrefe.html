@@ -1,0 +1,46 @@
+{% extends "forum/codice_comune_due.html" %}
+
+{% block content %}
+
+<div class="slider-thumb">
+
+        <div style="text-align: center;">
+            {% load static %}
+            <img src="{% static 'malattie/img/icona_home.png' %}" style="width:6%;height:6%;">
+        </div>
+
+  
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+        
+
+        <form action="{% url 'AggiungiForumPreferiti' %}" method="POST">
+            {% csrf_token %}
+
+
+            <h6 class="text-center" style="left: 30%;">Inserisci il topic forum:</h6>
+            <div class="input-group" style="left: 40%;">{{form.nome_topic_forum}}</div>
+
+            <h6 class="text-center"style="left: 50%;">partecipi?</h6>
+            <div class="input-group" style="left: 50%;">{{form.partecipa}}</div>
+
+
+            <h6 class="text-center">inserisci la mail:</h6>
+            <div class="input-group" style="left: 40%;">{{form.user_che_partecipa}}</div>
+            <br>
+
+            <div class="text-center"><input type="submit" class="btn btn-success" value="submit"></div>
+        </form>
+        
+    
+
+    <div class="redirect">
+        <a href="{% url 'home' %}"><h6>Torna alla Home!</h6></a><br><br>
+    </div>
+
+</div>
+
+
+
+{%endblock%}
+

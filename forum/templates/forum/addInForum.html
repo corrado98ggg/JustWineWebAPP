@@ -1,0 +1,35 @@
+{% extends "forum/codice_comune_due.html" %}
+
+{% block content %}
+
+
+<div class="slider-thumb">
+
+        <div style="text-align: center;">
+            {% load static %}
+            <img src="{% static 'malattie/img/icona_home.png' %}" style="width:6%;height:6%;">
+        </div>
+
+  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+        
+        <form action="{% url 'addInForum' %}"  method="POST">
+            {% csrf_token %}
+            <div style="text-align: center;">{{form.as_p}}</div>
+            <br>
+ 
+
+
+
+            <div class="input-group" style="left: 45%;"><input type="submit" class="btn btn-success" value="submit"></div>
+        </form>
+        
+</div>
+    
+
+    
+
+  
+
+</div>
+{%endblock%}

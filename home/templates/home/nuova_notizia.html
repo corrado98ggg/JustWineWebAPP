@@ -1,0 +1,54 @@
+
+{% extends "forum/codice_comune_due.html" %}
+
+{% block content %}
+
+<div class="slider-thumb">
+
+        <div style="text-align: center;">
+            {% load static %}
+            <img src="{% static 'malattie/img/icona_home.png' %}" style="width:6%;height:6%;">
+        </div>
+
+            <h1 class="title text-center">Inserisci nuova notizia:</h1>
+            <form enctype="multipart/form-data" method="POST" class="post-form">{% csrf_token %}
+
+                <h4 class="text-center">Inserisci un titolo!</h4>
+                <div class="input-group" style="text-align: center;">{{form.nome_notizia}}</div>
+                <br><br>
+                <br>
+                <h4 class="text-center" >Inserisci la descrizione della notizia:</h4>
+                <br>
+
+                
+                <div class="input-group" style="text-align: center;">{{form.descrizione}}</div>
+                <br><br>
+                
+
+                <div class="input-group" style="text-align: center;">
+                <button type="submit" class="save btn btn-secondary" style="
+                background-color: blue;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 12px;
+                ">Save</button>
+                </div>
+            </form>
+
+    
+
+    <br>
+    <br>
+    <br>
+
+    <div class="redirect">
+        <a href="{% url 'home' %}"><h1>Torna alla Home!</h1></a><br><br>
+    </div>
+
+</div>
+{%endblock%}
